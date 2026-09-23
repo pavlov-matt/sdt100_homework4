@@ -17,7 +17,7 @@ public class Assignment4Part2 {
         Scanner scanner = new Scanner(System.in);
 
         // Conversion constant: 1 cubic meter = 264.172 gallons
-        final double GALLONS_PER_CUBIC_FOOT = 264.172;
+        final double GALLONS_PER_CUBIC_METER = 264.172;
 
         System.out.println("==========================================");
         System.out.println("        Pool Water Fill Calculator         ");
@@ -37,14 +37,14 @@ public class Assignment4Part2 {
         double costPerThousandGallons = scanner.nextDouble();
 
         // Perform calculations
-        double volumeInCubicFeet = lengthInMeters * widthInMeters * depthInMeters;
-        double totalGallonsRequired = volumeInCubicFeet * GALLONS_PER_CUBIC_FOOT;
+        double volumeInCubicMeters = lengthInMeters * widthInMeters * depthInMeters;
+        double totalGallonsRequired = volumeInCubicMeters * GALLONS_PER_CUBIC_METER;
         double totalCost = (totalGallonsRequired / 1000.0) * costPerThousandGallons;
 
         // Display output
         System.out.println("\n----------------- Summary -----------------");
         System.out.printf("Structure Dimensions : %.2f m x %.2f m x %.2f m%n", lengthInMeters, widthInMeters, depthInMeters);
-        System.out.printf("Total Volume         : %.2f cubic feet%n", volumeInCubicFeet);
+        System.out.printf("Total Volume         : %.2f cubic meters%n", volumeInCubicMeters);
         System.out.printf("Water Required       : %.2f gallons%n", totalGallonsRequired);
         System.out.printf("Total Water Bill Cost: $%.2f%n", totalCost);
         System.out.println("-------------------------------------------");
