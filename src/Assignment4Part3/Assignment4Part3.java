@@ -23,11 +23,11 @@ public class Assignment4Part3 {
         System.out.print("Enter course name: ");
         String courseName = scanner.nextLine();
 
-        float quizzesWeight = 0;
-        float projectsWeight = 0;
-        float activitiesWeight = 0;
-        float attendanceWeight = 0;
-        float examsWeight = 0;
+        double quizzesWeight = 0;
+        double projectsWeight = 0;
+        double activitiesWeight = 0;
+        double attendanceWeight = 0;
+        double examsWeight = 0;
         boolean validWeights = false;
 
         // Loop until all weights sum up to 1.0
@@ -35,25 +35,25 @@ public class Assignment4Part3 {
             System.out.println("\n--- Enter Category Weights (Must sum to 1.0) ---");
 
             System.out.print("Enter quizzes weight: ");
-            quizzesWeight = scanner.nextFloat();
+            quizzesWeight = scanner.nextDouble();
 
             System.out.print("Enter projects weight: ");
-            projectsWeight = scanner.nextFloat();
+            projectsWeight = scanner.nextDouble();
 
             System.out.print("Enter activities weight: ");
-            activitiesWeight = scanner.nextFloat();
+            activitiesWeight = scanner.nextDouble();
 
             System.out.print("Enter attendance weight: ");
-            attendanceWeight = scanner.nextFloat();
+            attendanceWeight = scanner.nextDouble();
 
             System.out.print("Enter exams weight: ");
-            examsWeight = scanner.nextFloat();
+            examsWeight = scanner.nextDouble();
 
-            float totalWeight = quizzesWeight + projectsWeight + activitiesWeight
+            double totalWeight = quizzesWeight + projectsWeight + activitiesWeight
                     + attendanceWeight + examsWeight;
 
-            // Check if weights are sum up to 1
-            if (totalWeight == 1) {
+            // Check if the weights sum up to 1
+            if (totalWeight != 1) {
                 validWeights = true;
             } else {
                 System.out.printf("Error: The sum of weights is %.2f. The weights must sum to exactly 1.0. Please try again.%n", totalWeight);
@@ -61,22 +61,42 @@ public class Assignment4Part3 {
         }
 
         // Collect category averages
-        System.out.println("\n--- Enter Category Averages (0 to 1) ---");
+        System.out.println("\n--- Enter Category Averages (0.0 to 1.0) ---");
 
         System.out.print("Enter quizzes average: ");
         double quizzesAverage = scanner.nextDouble();
+        while (quizzesAverage > 1.0 || quizzesAverage < 0.0) {
+            System.out.print("Invalid average! Enter quizzes average (must be 1 or smaller): ");
+            quizzesAverage = scanner.nextDouble();
+        }
 
         System.out.print("Enter projects average: ");
         double projectsAverage = scanner.nextDouble();
+        while (projectsAverage > 1.0 || projectsAverage < 0.0) {
+            System.out.print("Invalid average! Enter projects average (must be 1 or smaller): ");
+            projectsAverage = scanner.nextDouble();
+        }
 
         System.out.print("Enter activities average: ");
         double activitiesAverage = scanner.nextDouble();
+        while (activitiesAverage > 1.0 || activitiesAverage < 0.0) {
+            System.out.print("Invalid average! Enter activities average (must be 1 or smaller): ");
+            activitiesAverage = scanner.nextDouble();
+        }
 
         System.out.print("Enter attendance average: ");
         double attendanceAverage = scanner.nextDouble();
+        while (attendanceAverage > 1.0 || attendanceAverage < 0.0) {
+            System.out.print("Invalid average! Enter attendance average (must be 1 or smaller): ");
+            attendanceAverage = scanner.nextDouble();
+        }
 
         System.out.print("Enter exams average: ");
         double examsAverage = scanner.nextDouble();
+        while (examsAverage > 1.0 || examsAverage < 0.0) {
+            System.out.print("Invalid average! Enter exams average (must be 1 or smaller): ");
+            examsAverage = scanner.nextDouble();
+        }
 
         // Calculate weighted scores and final grade percentage
         double weightedQuizzes = quizzesWeight * quizzesAverage;
