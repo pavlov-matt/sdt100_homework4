@@ -53,7 +53,7 @@ public class Assignment4Part3 {
                     + attendanceWeight + examsWeight;
 
             // Check if the weights sum up to 1
-            if (totalWeight != 1) {
+            if (totalWeight == 1) {
                 validWeights = true;
             } else {
                 System.out.printf("Error: The sum of weights is %.2f. The weights must sum to exactly 1.0. Please try again.%n", totalWeight);
